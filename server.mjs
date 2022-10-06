@@ -69,23 +69,6 @@ app.delete('/todo/:id', (req, res) => {
 
 app.get('/todos/classid', (req, res) => {
 
-    todomodel.find({}, (err, data) => {
-        todomodel=[text]
-        if (!err) {
-            res.send({
-                message: "here is your todo",
-                data: data
-            })
-        } else {
-            res.status(500).send({
-                message: "server error",
-            })
-        }
-    })
-});
-app.delete('/remove', (req, res) => {
-    todos = []
-    res.send("List delete successfully")
 })
 
 app.listen(port, () => {
