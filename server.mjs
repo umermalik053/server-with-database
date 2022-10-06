@@ -55,7 +55,7 @@ app.get('/todos', (req, res) => {
 });
 
 app.delete('/todos', (req, res) => {
-    const id = req.body.id
+    let id = req.body.id
     console.log(id);
     todomodel.findByIdAndDelete(id, (err, data) => {
         res.send({
