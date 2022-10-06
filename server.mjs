@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { text } from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 
@@ -38,11 +38,7 @@ app.post('/todos', (req, res) => {
         }
     })
 });
-
-
-
-
-app.get('/todos', (req, res) => {
+app.get('/todos/text', (req, res) => {
 
     todomodel.find({}, (err, data) => {
         if (!err) {
@@ -57,6 +53,40 @@ app.get('/todos', (req, res) => {
         }
     })
 });
+
+app.delete('/todo/:id', (req, res) => {
+    const id = req.body.id
+    console.log(id);
+    todomodel.findByIdAndDelete(id, (err, data) => {
+        res.send({
+            data: data
+        })
+    })
+})
+
+
+
+
+app.get('/todos/classid', (req, res) => {
+
+    todomodel.find({}, (err, data) => {
+        todomodel=[text]
+        if (!err) {
+            res.send({
+                message: "here is your todo",
+                data: data
+            })
+        } else {
+            res.status(500).send({
+                message: "server error",
+            })
+        }
+    })
+});
+app.delete('/remove', (req, res) => {
+    todos = []
+    res.send("List delete successfully")
+})
 
 app.listen(port, () => {
     console.log(`server app is listening on port ${port}`);
