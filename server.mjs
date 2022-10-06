@@ -38,7 +38,7 @@ app.post('/todos', (req, res) => {
         }
     })
 });
-app.get('/todos/text', (req, res) => {
+app.get('/todos', (req, res) => {
 
     todomodel.find({}, (err, data) => {
         if (!err) {
@@ -54,7 +54,7 @@ app.get('/todos/text', (req, res) => {
     })
 });
 
-app.delete('/todo/:id', (req, res) => {
+app.delete('/todos', (req, res) => {
     const id = req.body.id
     console.log(id);
     todomodel.findByIdAndDelete(id, (err, data) => {
@@ -63,14 +63,6 @@ app.delete('/todo/:id', (req, res) => {
         })
     })
 })
-
-
-
-
-app.get('/todos/classid', (req, res) => {
-
-})
-
 app.listen(port, () => {
     console.log(`server app is listening on port ${port}`);
 })
