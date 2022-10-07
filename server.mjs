@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(cors());
 
 
-app.post('/todostodo', (req, res) => {
+app.post('/todo', (req, res) => {
 
 
 
