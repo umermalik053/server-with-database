@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(cors());
 
 
-app.post('/todos', (req, res) => {
+app.post('/todostodo', (req, res) => {
 
 
 
@@ -54,7 +54,7 @@ app.get('/todos', (req, res) => {
     })
 });
 
-app.delete('/todos', (req, res) => {
+app.delete('/remove', (req, res) => {
     let id = req.body.id
     console.log(id);
     todomodel.findByIdAndDelete(id, (err, data) => {
